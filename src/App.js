@@ -38,7 +38,6 @@ export default function App() {
   const handleChange = e => {
     const { name, value } = e.target;
     setFilter(value);
-    console.log(contacts);
   }
 
   const removeContact = e => {
