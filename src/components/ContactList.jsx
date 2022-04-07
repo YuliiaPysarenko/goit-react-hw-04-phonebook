@@ -11,7 +11,6 @@ const Button = styled.button`
 `
 
 const ContactList = ({filter, items, removeContact}) => {
-    console.log({filter, items, removeContact})
     const filteredItems = items.filter((item) => item.name.toLowerCase().includes(filter.toLowerCase()));
     return (
         <ul>

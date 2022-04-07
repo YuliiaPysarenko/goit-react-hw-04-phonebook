@@ -26,22 +26,16 @@ export default function App() {
   const formSubmitHandler = (data) => {
     const existedContact = contacts.find((contact) => contact.name.toLowerCase() === data.name.toLowerCase());
     if (!existedContact) {
-      try {
         const id = nanoid();
-        setContacts((state) => {
-          localStorage.setItem("react-yp-hw4-contacts", JSON.stringify([...state, {...data , id} ]));
-        });
-        return true;
-      } catch (error) {
-        console.log(error);
-      }
+        const newArray = contacts.concat({...data , id});
+        localStorage.setItem("react-yp-hw4-contacts", JSON.stringify(newArray));
+        return setContacts(newArray);
     } else {
       alert(`${data.name} is already in contacts`);
     }
   }
 
   const handleChange = e => {
-    console.log(e.target);
     const { name, value } = e.target;
     setFilter(value);
     console.log(contacts);
